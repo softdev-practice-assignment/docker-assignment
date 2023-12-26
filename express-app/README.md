@@ -1,4 +1,4 @@
-# SDPx-Lab-1
+# Assignment - Docker
 
 ### Prerequires:
 
