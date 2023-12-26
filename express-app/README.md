@@ -35,7 +35,3 @@ $ docker build -t test .
 ```bash
 $ docker compose up
 ```
-
-- 4.เสร็จละ ง่ายเกิน
-
-  ไว้ที่เหลือเดี๋ยวมาอธิบายว่าทำไรไป
