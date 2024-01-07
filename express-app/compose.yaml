@@ -1,4 +1,4 @@
-version: '3.1'
+version: "3.1"
 services:
   db-dev:
     container_name: db-dev
@@ -12,6 +12,8 @@ services:
       - 3306:3306
     volumes:
       - dbdev:/var/lib/mysql
+    networks:
+      - dev_net
   api-dev:
     container_name: api-dev
     restart: always
@@ -26,6 +28,8 @@ services:
       - DB_PASSWORD=db4dev$
       - DB_NAME=MySQL
       - DB_PORT=3306
+    networks:
+      - dev_net
   db-test:
     container_name: db-test
     image: mysql
@@ -38,6 +42,8 @@ services:
       - 3307:3306
     volumes:
       - dbtest:/var/lib/mysql
+    networks:
+      - test_net
   api-test:
     container_name: api-test
     restart: always
@@ -51,7 +57,13 @@ services:
       - DB_USER=admin
       - DB_PASSWORD=db4test$
       - DB_NAME=MySQL
-      - DB_PORT=3307
+      - DB_PORT=3306
+    networks:
+      - test_net
 volumes:
   dbdev:
   dbtest:
+
+networks:
+  dev_net:
+  test_net:
